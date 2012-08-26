@@ -38,7 +38,11 @@ foo = Robbie::Artist.find_by_name("foo fighters")
 foo = Robbie::Artist.find("MN0000184043")
 
 foo.albums.last
-# <Robbie::Album:0x007fb9cc16b790 @id="MW0002115022", @title="Wasting Light">
+# <Robbie::Album:0x007fb9cc16b790
+#   @id="MW0002115022",
+#   @title="Wasting Light",
+#   @year="2011"
+# >
 
 # ...or directly by id
 Robbie::Album.find("MW0002115022")

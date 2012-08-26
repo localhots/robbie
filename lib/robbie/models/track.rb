@@ -7,5 +7,9 @@ module Robbie
         Parsers::Track.find(id)
       end
     end
+
+    def artists
+      @artists || []
+    end
   end
 end

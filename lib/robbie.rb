@@ -36,5 +36,9 @@ module Robbie
     def cache_enabled?
       @@cache_enabled
     end
+
+    def free_limits?
+      true
+    end
   end
 end

@@ -17,7 +17,7 @@ module Robbie
     end
 
     def albums
-      @albums ||= Parsers::Artist.find(id).albums
+      @albums ||= Parsers::Artist.find(id).albums || []
     end
   end
 end

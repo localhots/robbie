@@ -13,7 +13,7 @@ module Robbie
     end
 
     def tracks
-      @tracks ||= Parsers::Album.find(id).tracks
+      @tracks ||= Parsers::Album.find(id).tracks || []
     end
   end
 end

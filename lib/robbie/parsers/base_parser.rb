@@ -4,6 +4,7 @@ module Robbie
       include HTTParty
       base_uri "api.rovicorp.com"
       format :json
+      @@calls = []
 
       class << self
         def sig
@@ -25,15 +26,27 @@ module Robbie
             if File.exist?(cache_file)
               MultiJson.load(File.open(cache_file).read)
             else
-              data = get("#{path}?#{params_str}")
+              data = load("#{path}?#{params_str}")
               File.open(cache_file, "w") do |file|
                 file.write(MultiJson.dump(data)) unless data.nil? or data.empty?
               end
               data
             end
           else
-            get("#{path}?#{params_str}")
+            load("#{path}?#{params_str}")
           end
+        end
+
+        def load(uri)
+          if Robbie.free_limits?
+            @@calls = @@calls.length > 5 ? @@calls.slice(-5, 5) : @@calls
+            if @@calls.length > 5 && Time.now.to_f - @@calls.first <= 1.0
+              sleep(1.05 - (Time.now.to_f - @@calls.first))
+            end
+            @@calls << Time.now.to_f
+          end
+
+          get(uri)
         end
       end
     end

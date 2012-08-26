@@ -36,8 +36,10 @@ module Robbie
           params = {}
           params[:id] = data["ids"]["albumId"] if data["ids"]
           params[:title] = data["title"]
-          if data["album"] && data["originalReleaseDate"].is_a?(String)
+          if data["originalReleaseDate"].is_a?(String)
             params[:year] = data["originalReleaseDate"].split("-").first
+          elsif data["year"].is_a?(String)
+            params[:year] = data["year"].split("-").first
           end
 
           Robbie::Album.new(params)
