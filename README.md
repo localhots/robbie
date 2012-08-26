@@ -28,14 +28,14 @@ Robbie.setup(api_key: "your api key", api_secret: "your api secret")
 
 foo = Robbie::Artist.find_by_name("foo fighters")
 # <Robbie::Artist:0x007fb9cbd7c120
-#   @id="MA0000002613",
+#   @id="MN0000184043",
 #   @name="Foo Fighters",
 #   @is_group=true,
 #   @genres=[#<Robbie::Genre:0x007fb9cbd7c2b0 @id="MA0000002613", @name="Pop/Rock">]
 # >
 
 # ...or directly by id
-foo = Robbie::Artist.find("MA0000002613")
+foo = Robbie::Artist.find("MN0000184043")
 
 foo.albums.last
 # <Robbie::Album:0x007fb9cc16b790 @id="MW0002115022", @title="Wasting Light">

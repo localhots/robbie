@@ -4,7 +4,11 @@ module Robbie
 
     class << self
       def search(q)
-        Parsers::Search.search(q).keep_if { |item| item.instance_of?(Robbie::Album) }
+        Parsers::Search.search(q).keep_if{ |item| item.instance_of?(Robbie::Album) }
+      end
+
+      def find(id)
+        Parsers::Album.find(id)
       end
     end
 

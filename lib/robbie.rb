@@ -18,6 +18,7 @@ require "robbie/autocomplete"
 
 module Robbie
   @@cache_enabled = false
+
   class << self
     def setup(params)
       const_set(:API_KEY, params[:api_key])
