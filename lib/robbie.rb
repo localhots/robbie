@@ -21,8 +21,10 @@ module Robbie
 
   class << self
     def setup(params)
-      const_set(:API_KEY, params[:api_key])
-      const_set(:API_SECRET, params[:api_secret])
+      const_set(:META_API_KEY, params[:meta_api_key])
+      const_set(:META_API_SECRET, params[:meta_api_secret])
+      const_set(:AUTOCOMPLETE_API_KEY, params[:autocomplete_api_key])
+      const_set(:AUTOCOMPLETE_API_SECRET, params[:autocomplete_api_secret])
     end
 
     def enable_cache

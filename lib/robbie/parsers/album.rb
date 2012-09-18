@@ -26,6 +26,8 @@ module Robbie
 
               Parsers::Track.parse_meta(track, current_disc, position)
             end
+          else
+            album.tracks = []
           end
           album
         end
